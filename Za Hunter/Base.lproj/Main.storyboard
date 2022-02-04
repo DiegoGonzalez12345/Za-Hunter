@@ -29,7 +29,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9LU-87-nyK" secondAttribute="trailing" id="qUq-HQ-vKu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="i1K-7a-hzR"/>
+                    <navigationItem key="navigationItem" id="i1K-7a-hzR">
+                        <barButtonItem key="leftBarButtonItem" title="Zoom" id="jQm-kD-7RP">
+                            <connections>
+                                <action selector="whenZoomButtonPressed:" destination="BYZ-38-t0r" id="uEs-Nj-fwo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Hf3-Ik-LWH">
+                            <connections>
+                                <action selector="whenSearchButtonPressed:" destination="BYZ-38-t0r" id="0mR-9r-ZZ9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="9LU-87-nyK" id="7MV-k9-ZzJ"/>
                     </connections>
