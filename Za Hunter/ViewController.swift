@@ -35,14 +35,14 @@ var currentLocation : CLLocation!
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
 
     {
-currentLocation = locations[0]
+        currentLocation = locations[0]
     }
     @IBAction func whenSearchButtonPressed(_ sender: Any)
     
     {
-    //Hi Briana
+
        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Parks"
+        request.naturalLanguageQuery = "Pizza Shops"
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: span)
