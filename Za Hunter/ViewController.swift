@@ -8,7 +8,7 @@
 import MapKit
 import UIKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -29,6 +29,8 @@ var currentLocation : CLLocation!
         locationManager.requestWhenInUseAuthorization()
        locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
+        mapView.delegate = self
+        
     }
     
     
@@ -37,8 +39,8 @@ var currentLocation : CLLocation!
     {
         currentLocation = locations[0]
     }
-    @IBAction func whenSearchButtonPressed(_ sender: Any)
     
+    @IBAction func whenSearchButtonPressed(_ sender: Any)
     {
 
        let request = MKLocalSearch.Request()
@@ -60,12 +62,16 @@ var currentLocation : CLLocation!
         
         
     }
-   
-            
-            
+//            func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView{
+//
+//
+//        }
+
+
         }
 
     }
+    
     @IBAction func whenZoomButtonPressed(_ sender: Any)
     {
         let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -75,4 +81,5 @@ var currentLocation : CLLocation!
         
         
     }
-}
+  }
+
