@@ -62,18 +62,27 @@ var currentLocation : CLLocation!
         
         
     }
-//            func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView{
-//
-//
-//        }
+            func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+                if annotation.isEqual(mapView.userLocation) {
+                    return nil
+                }
+                
+                let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+                pin.image=UIImage(named: "Pizza")
+                
+                return pin
+                }
 
 
         }
 
-    }
+
+        }
+
     
-    @IBAction func whenZoomButtonPressed(_ sender: Any)
+func whenZoomButtonPressed(_ sender: Any)
     {
+
         let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: coordinateSpan)
@@ -81,5 +90,5 @@ var currentLocation : CLLocation!
         
         
     }
-  }
+}
 
