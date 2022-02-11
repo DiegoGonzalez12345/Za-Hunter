@@ -70,9 +70,13 @@ var currentLocation : CLLocation!
                 let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
                 pin.image=UIImage(named: "Pizza")
                 
+                
+                pin.canShowCallout = true
+                let button = UIButton(type:.detailDisclosure)
+                pin.rightCalloutAccessoryView = button
                 return pin
                 }
-
+        
 
         }
 
