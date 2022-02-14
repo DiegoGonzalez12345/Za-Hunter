@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
     
+
     @IBOutlet weak var mapView: MKMapView!
     
 let locationManager = CLLocationManager()
@@ -19,7 +20,7 @@ var currentLocation : CLLocation!
 
     
 
-    var parks: [MKMapItem] = []
+    var shops: [MKMapItem] = []
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -40,26 +41,34 @@ var currentLocation : CLLocation!
         currentLocation = locations[0]
     }
     
-    @IBAction func whenSearchButtonPressed(_ sender: Any)
+    @IBAction func whenSearchButtonPressed(_ sender: UIBarButtonItem)
     {
 
-       let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Pizza Shops"
+       let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = "Pizza Shops"
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        
+        var shops: [MKMapItem] = []
+        var selectedShop: PizzaShop!
+        
+        
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: span)
-        request.region = MKCoordinateRegion(center: center, span: span)
-        let search = MKLocalSearch(request: request)
+        searchRequest.region = MKCoordinateRegion(center: center, span: span)
+        let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
         guard let response = response else { return }
         for mapItem in response.mapItems {
-        self.parks.append(mapItem)
+        self.shops.append(mapItem)
         let annotation = MKPointAnnotation()
         annotation.coordinate = mapItem.placemark.coordinate
         annotation.title = mapItem.name
         self.mapView.addAnnotation(annotation)
         self.mapView.setRegion(region, animated: true)
-        
+            
+            self.shops.append(mapItem)
+            
+            
         
     }
             func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -79,9 +88,32 @@ var currentLocation : CLLocation!
         
 
         }
-
-
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            var currentMapItem = MKMapItem()
+            
+            if let title = view.annotation?.title, let shopName = title {
+                for mapItem in shops {
+                    if mapItem.name == shopName {
+                    currentMapItem = mapItem
+                }
+            }
+            
         }
+            let placemark = currentMapItem.placemark
+            let name = placemark.name ?? "Unknown Shop Name"
+            let state = placemark.administrativeArea ?? "Unknown State"
+            let city = placemark.locality ?? "Unknown City"
+            let street = placemark.thoroughfare ?? "No Street Address"
+            let streetNumber = placemark.subThoroughfare ?? "No Street Number"
+            
+            let fullAddressString = "\(streetNumber) \(street), \(city), \(state)"
+            
+            selectedShop = PizzaShop(name: name, address: fullAddressString)
+            
+            
+        }
+        
+        
 
     
 func whenZoomButtonPressed(_ sender: Any)
@@ -90,9 +122,10 @@ func whenZoomButtonPressed(_ sender: Any)
         let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: coordinateSpan)
-        mapView.setRegion(region, animated: true)
+       // mapView.setRegion(region, animated: true)
         
         
     }
 }
 
+}

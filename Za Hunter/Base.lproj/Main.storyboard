@@ -44,11 +44,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="9LU-87-nyK" id="7MV-k9-ZzJ"/>
+                        <segue destination="dgs-yc-dNm" kind="show" id="4Qr-Dy-HPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="797.10144927536237" y="0.0"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="j8W-mg-jCb">
+            <objects>
+                <viewController id="dgs-yc-dNm" customClass="DetailsViewController" customModule="Za_Hunter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K13-Yu-aIi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Fcc-hB-yTz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NsE-Ii-fiq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byR-CS-F0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jms-lH-X2q">

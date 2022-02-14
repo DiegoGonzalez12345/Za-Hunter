@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030B7BC327B6E28F00315EEA /* PizzaShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B7BC227B6E28F00315EEA /* PizzaShop.swift */; };
+		030B7BC527BADBFB00315EEA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B7BC427BADBFB00315EEA /* DetailsViewController.swift */; };
 		B0499B9C27A85D6100B93D2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499B9B27A85D6100B93D2A /* AppDelegate.swift */; };
 		B0499B9E27A85D6100B93D2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499B9D27A85D6100B93D2A /* SceneDelegate.swift */; };
 		B0499BA027A85D6100B93D2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499B9F27A85D6100B93D2A /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030B7BC227B6E28F00315EEA /* PizzaShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaShop.swift; sourceTree = "<group>"; };
+		030B7BC427BADBFB00315EEA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B0499B9827A85D6100B93D2A /* Za Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Za Hunter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0499B9B27A85D6100B93D2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0499B9D27A85D6100B93D2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		B0499B8F27A85D6100B93D2A = {
 			isa = PBXGroup;
 			children = (
+				030B7BC427BADBFB00315EEA /* DetailsViewController.swift */,
+				030B7BC227B6E28F00315EEA /* PizzaShop.swift */,
 				B0499B9A27A85D6100B93D2A /* Za Hunter */,
 				B0499B9927A85D6100B93D2A /* Products */,
 			);
@@ -139,7 +145,9 @@
 			files = (
 				B0499BA027A85D6100B93D2A /* ViewController.swift in Sources */,
 				B0499B9C27A85D6100B93D2A /* AppDelegate.swift in Sources */,
+				030B7BC327B6E28F00315EEA /* PizzaShop.swift in Sources */,
 				B0499B9E27A85D6100B93D2A /* SceneDelegate.swift in Sources */,
+				030B7BC527BADBFB00315EEA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
