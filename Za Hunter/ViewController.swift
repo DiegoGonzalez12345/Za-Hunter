@@ -16,7 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
 let locationManager = CLLocationManager()
 var currentLocation : CLLocation!
-
+    var selectedShop: PizzaShop!
 
     
 
@@ -31,6 +31,15 @@ var currentLocation : CLLocation!
        locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
         mapView.delegate = self
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nvc = segue.destination as! DetailsViewController
+       // nvc.currentPizzaShop = selectedShop
+        
+        
+        
         
     }
     
@@ -49,7 +58,7 @@ var currentLocation : CLLocation!
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         
         var shops: [MKMapItem] = []
-        var selectedShop: PizzaShop!
+        
         
         
         let center = currentLocation.coordinate
@@ -110,7 +119,7 @@ var currentLocation : CLLocation!
             
             selectedShop = PizzaShop(name: name, address: fullAddressString)
             
-            
+            performSegue(withIdentifier: "shopInfo", sender: nil)
         }
         
         
