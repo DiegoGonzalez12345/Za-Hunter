@@ -13,6 +13,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
 
     @IBOutlet weak var mapView: MKMapView!
+   
+    
+    
+    
+    
     
 let locationManager = CLLocationManager()
 var currentLocation : CLLocation!
@@ -36,7 +41,7 @@ var currentLocation : CLLocation!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nvc = segue.destination as! DetailsViewController
-       // nvc.currentPizzaShop = selectedShop
+       //nvc.currentPizzaShop = selectedShop
         
         
         
