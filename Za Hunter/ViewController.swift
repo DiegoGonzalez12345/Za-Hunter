@@ -41,7 +41,7 @@ var currentLocation : CLLocation!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nvc = segue.destination as! DetailsViewController
-       //nvc.currentPizzaShop = selectedShop
+       nvc.currentPizzaShop = selectedShop
         
         
         
@@ -62,7 +62,7 @@ var currentLocation : CLLocation!
         searchRequest.naturalLanguageQuery = "Pizza Shops"
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         
-        var shops: [MKMapItem] = []
+       // var shops: [MKMapItem] = []
         
         
         
@@ -127,19 +127,19 @@ var currentLocation : CLLocation!
             performSegue(withIdentifier: "shopInfo", sender: nil)
         }
         
-        
+       
 
-    
+    }
 func whenZoomButtonPressed(_ sender: Any)
     {
 
         let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: coordinateSpan)
-       // mapView.setRegion(region, animated: true)
+       mapView.setRegion(region, animated: true)
         
         
     }
 }
 
-}
+
